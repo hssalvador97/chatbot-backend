@@ -10,7 +10,7 @@ app.use(require('./controladores/indexControlador'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const SocketIO = require('socket.io');
-const http = require('http');
+const http = require('https');
 let server = http.createServer(app);
 //IO
 let io = SocketIO(server);
@@ -22,7 +22,6 @@ let message = [];
 
 // const dFlow = require('dialogflow-fulfillment');
 const dialogflow = require('@google-cloud/dialogflow');
-const uuid = require('uuid');
 const { configs } = require('../dialogflow');
 const { Payload } = require('dialogflow-fulfillment');
 

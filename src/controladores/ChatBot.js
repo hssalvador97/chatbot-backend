@@ -5,7 +5,9 @@ const dialogflow = require('@google-cloud/dialogflow');
 const uuid = require('uuid');
 const { configs } = require('./../../dialogflow');
 
-
+app.get("/", express.json(), (req, res) => {
+    res.status(200).send("CONECTADO");
+});
 app.post("/", express.json(), (req, res) => {
     const agent = new dFlow.WebhookClient({
         request: req,
