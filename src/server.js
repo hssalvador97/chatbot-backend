@@ -10,7 +10,7 @@ app.use(require('./controladores/indexControlador'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const SocketIO = require('socket.io');
-const http = require('https');
+const http = require('http');
 let server = http.createServer(app);
 //IO
 let io = SocketIO(server);
