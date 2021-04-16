@@ -21,6 +21,7 @@ module.exports.io = require('socket.io')(server);
 
 require('./controladores/sockets_chat');
 server.listen(process.env.PORT, () => {
+    console.log(process.env.PORT);
     sequelize.authenticate().then(() => {
         console.log("Conexion a Mysql");
     }).catch(error => {
