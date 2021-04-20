@@ -17,6 +17,10 @@ io.on('connection', (cliente) => {
 
         if (usuario.IDROL == 1) {
             usuarios = await GESTOCAR_T_USUARIO.findAll({
+                order: [
+                    // Will escape title and validate DESC against a list of valid direction parameters
+                    ['USUARIO', 'DESC'],
+                ],
                 where: {
                     IDROL: {
                         [Op.ne]: 1
@@ -72,6 +76,9 @@ io.on('connection', (cliente) => {
                 // USUARIO ADMIN. 
 
                 usuarios = await GESTOCAR_T_USUARIO.findAll({
+                    order: [
+                        ['USUARIO', 'DESC'],
+                    ],
                     where: {
                         IDROL: {
                             [Op.ne]: 1
@@ -146,6 +153,9 @@ io.on('connection', (cliente) => {
 
                 usuarios = await GESTOCAR_T_USUARIO.findAll({
                     where: {
+                        order: [
+                            ['USUARIO', 'DESC'],
+                        ],
                         IDROL: {
                             [Op.ne]: 1
                         }
@@ -237,6 +247,9 @@ io.on('connection', (cliente) => {
 
             if (activo.IDROL == 1) {
                 activos = await GESTOCAR_T_USUARIO.findAll({
+                    order: [
+                        ['USUARIO', 'DESC'],
+                    ],
                     where: {
                         IDROL: {
                             [Op.ne]: 1
