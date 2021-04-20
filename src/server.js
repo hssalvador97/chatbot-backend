@@ -23,8 +23,9 @@ const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath));
 
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, (err) => {
     console.log(process.env.PORT);
+    if (err) throw new Error(err);
     sequelize.authenticate().then(() => {
         console.log("Conexion a Mysql");
     }).catch(error => {
