@@ -18,7 +18,7 @@ io.on('connection', (cliente) => {
         if (usuario.IDROL == 1) {
             usuarios = await GESTOCAR_T_USUARIO.findAll({
                 where: {
-                    IDUSUARIO: {
+                    IDROL: {
                         [Op.ne]: 1
                     }
                 }
@@ -73,7 +73,7 @@ io.on('connection', (cliente) => {
 
                 usuarios = await GESTOCAR_T_USUARIO.findAll({
                     where: {
-                        IDUSUARIO: {
+                        IDROL: {
                             [Op.ne]: 1
                         }
                     }
@@ -146,7 +146,7 @@ io.on('connection', (cliente) => {
 
                 usuarios = await GESTOCAR_T_USUARIO.findAll({
                     where: {
-                        IDUSUARIO: {
+                        IDROL: {
                             [Op.ne]: 1
                         }
                     }
@@ -238,7 +238,7 @@ io.on('connection', (cliente) => {
             if (activo.IDROL == 1) {
                 activos = await GESTOCAR_T_USUARIO.findAll({
                     where: {
-                        IDUSUARIO: {
+                        IDROL: {
                             [Op.ne]: 1
                         }
                     }
