@@ -5,6 +5,7 @@ const path = require('path');
 const request = require('request');
 const cors = require('cors');
 const app = express();
+const fs = require('fs');
 
 require('dotenv').config();
 
@@ -13,7 +14,14 @@ app.use(bodyParser.json());
 app.use(require('./controladores/indexControlador'));
 
 const { sequelize } = require('./database/models/index');
-const server = require('http').createServer(app);
+
+var sslOptions = {
+  key: fs.readFileSync(path.resolve('src/key.pem')),
+  cert: fs.readFileSync(path.resolve('src/cert.pem'))
+};
+
+const server = require('https').createServer(sslOptions, app);
+
 module.exports.io = require('socket.io')(server);
 
 require('./controladores/sockets_chat');
